@@ -1,0 +1,19 @@
+version: '3' 
+services:
+
+  php:
+    build: ./
+    container_name: web-php1        
+    volumes:
+      - ./php.ini:/usr/local/etc/php/php.ini           
+      - ./html:/var/www/html   
+    ports:
+      - 8081:80
+    networks:
+      - testweb
+    restart: always
+
+networks:
+  testweb:
+    external: true
+
